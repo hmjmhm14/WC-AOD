@@ -2,16 +2,43 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Моя онлайн-игра</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Кот-Воитель: Главное меню</title>
 </head>
-<body>
-    <div style="text-align: center; margin-top: 20vh;">
-        <h1>Добро пожаловать в игру!</h1>
-        <!-- Ссылка на страницу регистрации -->
-        <a href="register_setup.html">
-            <button class="btn-create">Играть / Регистрация</button>
-        </a>
+<body style="background-color: #1a1a1a; color: #f0f0f0; font-family: sans-serif; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0;">
+
+    <!-- Общий контейнер (сетка из 3 колонок, как на вашем рисунке) -->
+    <div style="display: grid; grid-template-columns: 280px 280px 280px; gap: 20px; max-width: 900px;">
+
+        <!-- Блок 1: Информация об игре -->
+        <div style="background-color: #2a2a2a; border: 1px solid #3a3a3a; border-radius: 12px; padding: 20px; box-sizing: border-box;">
+            <h3 style="color: #4CAF50; margin-top: 0;">Информация</h3>
+            <p style="font-size: 13px; color: #ccc; line-height: 1.5;">Добро пожаловать в мир диких котов! Здесь вы можете создать своего уникального персонажа, выбрать племя и исследовать опасные территории.</p>
+        </div>
+
+        <!-- Центральная колонка (делится на 2 блока: 2 и 3) -->
+        <div style="display: flex; flex-direction: column; gap: 20px;">
+            
+            <!-- Блок 2: Мини-рассказ об игре -->
+            <div style="background-color: #2a2a2a; border: 1px solid #3a3a3a; border-radius: 12px; padding: 20px; box-sizing: border-box;">
+                 об игре</h3>
+                <p style="font-size: 13px; color: #ccc; line-height: 1.4; margin: 0;">Четыре племени делят лес по законам Воинского Закона. Но вы можете стать одиночкой или найти верных друзей...</p>
+            </div>
+
+            <!-- Блок 3: Регистрация / Вход -->
+            <div style="background-color: #2a2a2a; border: 1px solid #3a3a3a; border-radius: 12px; padding: 20px; box-sizing: border-box; text-align: center;">
+                <h3 style="color: #fff; font-size: 16px; margin-top: 0; margin-bottom: 15px;">Добро пожаловать!</h3>
+                <a href="register_setup.html" style="display: inline-block; width: 100%; padding: 10px; background-color: #4CAF50; color: white; text-decoration: none; border-radius: 6px; font-weight: bold; box-sizing: border-box;">Играть / Регистрация</a>
+            </div>
+
+        </div>
+
+        <!-- Блок 4: Новости / Обновления -->
+        <div style="background-color: #2a2a2a; border: 1px solid #3a3a3a; border-radius: 12px; padding: 20px; box-sizing: border-box;">
+            <h3 style="color: #ff9800; margin-top: 0;">Новости</h3>
+            <p style="font-size: 13px; color: #ccc; line-height: 1.5;">🛠 <b>Версия 0.1:</b> Запущено создание персонажей и базовая регистрация. Скоро появится игровая карта и чат!</p>
+        </div>
+
     </div>
+
 </body>
 </html>
