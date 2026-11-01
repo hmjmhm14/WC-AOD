@@ -8,36 +8,28 @@
 <body>
 
     <div class="register-container">
-        <h1>Создание вашего кота</h1>
+        <h1>Рождение: Регистрация</h1>
         
         <form id="registerForm">
             <!-- Имя кота -->
             <label for="catName">Имя кота:</label>
-            <input type="text" id="catName" placeholder="Например: Огнезвезд" required>
+            <input type="text" id="catName" placeholder="Например: Крутобок" required>
 
             <!-- Выбор племени -->
             <label for="tribeSelect">Племя:</label>
             <select id="tribeSelect">
-                <option value="thunder">Грозовое племя</option>
-                <option value="shadow">Племя Теней</option>
-                <option value="wind">Племя Ветра</option>
-                <option value="river">Речное племя</option>
-            </select>
-
-            <!-- Выбор окраса -->
-            <label for="furColor">Окрас шерсти:</label>
-            <select id="furColor">
-                <option value="ginger">Рыжий</option>
-                <option value="black">Черный</option>
-                <option value="grey">Серый</option>
-                <option value="white">Белый</option>
+                <option value="thunder">Одиночки</option>
             </select>
 
             <!-- Кнопка создания -->
-            <button type="submit" class="btn-create">Создать кота и войти в игру</button>
+            <button type="submit" class="btn-create">Зарегестрировать</button>
         </form>
     </div>
 
+    <!-- Кнопка возврата в главное меню -->
+        <a href="index.html" class="btn-back">← Назад в главное меню</a>
+    </div>
+    
     <script src="script.js"></script>
 </body>
 </html>
