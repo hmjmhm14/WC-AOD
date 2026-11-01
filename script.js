@@ -7,27 +7,31 @@ document.addEventListener("DOMContentLoaded", function () {
             e.preventDefault();
 
             const catName = document.getElementById("catName").value.trim();
-            const tribe = document.getElementById("tribeSelect").value;
+            const tribeSelect = document.getElementById("tribeSelect");
+            // Получаем название выбранного племени
+            const tribeName = tribeSelect.options[tribeSelect.selectedIndex].text;
 
             if (!catName) {
                 alert("Пожалуйста, введите имя кота!");
                 return;
             }
 
-            // Создаем объект кота
+            // Создаем полный объект кота со стартовыми параметрами для профиля
             const newCat = {
                 name: catName,
-                tribe: tribe,
+                tribe: tribeName,
+                moons: 1, // Начальный возраст (1 луна)
+                avatar: "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?q=80&w=500&auto=format&fit=crop", // Дефолтное фото
                 createdAt: new Date().toLocaleDateString()
             };
 
-            // Сохраняем кота в localStorage браузера
+            // Сохраняем в localStorage браузера
             localStorage.setItem("catPlayer", JSON.stringify(newCat));
 
-            alert(`Персонаж ${catName} успешно создан!`);
+            alert(`Поздравляем с рождением персонажа, ${catName}!`);
             
-            // Перенаправляем в игру (можно заменить на вашу страницу game.html)
-            window.location.href = "index.html";
+            // Перенаправляем на страницу профиля и игры
+            window.location.href = "profile.html";
         });
     }
 
@@ -39,14 +43,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
             const loginUser = document.getElementById("loginUser").value.trim();
 
-            // Проверяем, есть ли сохраненный кот
+            // Проверяем, есть ли сохраненный кот в браузере
             const savedCat = localStorage.getItem("catPlayer");
 
             if (savedCat) {
                 const cat = JSON.parse(savedCat);
                 if (cat.name.toLowerCase() === loginUser.toLowerCase()) {
                     alert(`С возвращением, ${cat.name}!`);
-                    window.location.href = "index.html"; // Игровая страница
+                    // Перенаправляем на страницу профиля и игры
+                    window.location.href = "profile.html";
                 } else {
                     alert("Персонаж с таким именем не найден!");
                 }
