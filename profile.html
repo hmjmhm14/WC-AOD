@@ -1,1 +1,106 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>WC:AOD - Профиль и Игра</title>
+</head>
+<body id="gameBody" style="
+    background-image: url('https://images.unsplash.com/photo-1543510875-8b2e1c93c1ed?q=80&w=1170&auto=format&fit=crop');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: #f0f0f0; 
+    font-family: sans-serif; 
+    display: flex; 
+    flex-direction: column;
+    align-items: center; 
+    min-height: 100vh; 
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+">
 
+    <!-- Верхняя навигация (Кнопки разделов) -->
+    <div style="display: flex; gap: 15px; margin-bottom: 25px; flex-wrap: wrap; justify-content: center;">
+        <button onclick="switchTab('profile')" style="padding: 10px 20px; background-color: rgba(42, 42, 42, 0.85); border: 1px solid rgba(255,255,255,0.2); color: white; border-radius: 8px; cursor: pointer; font-weight: bold; backdrop-filter: blur(4px);">👤 Профиль</button>
+        <button onclick="switchTab('game')" style="padding: 10px 20px; background-color: rgba(42, 42, 42, 0.85); border: 1px solid rgba(255,255,255,0.2); color: white; border-radius: 8px; cursor: pointer; font-weight: bold; backdrop-filter: blur(4px);">🌲 Игровая</button>
+        <button onclick="switchTab('colorEditor')" style="padding: 10px 20px; background-color: rgba(42, 42, 42, 0.85); border: 1px solid rgba(255,255,255,0.2); color: white; border-radius: 8px; cursor: pointer; font-weight: bold; backdrop-filter: blur(4px);">🎨 Редактор окраса</button>
+        <button onclick="switchTab('chat')" style="padding: 10px 20px; background-color: rgba(42, 42, 42, 0.85); border: 1px solid rgba(255,255,255,0.2); color: white; border-radius: 8px; cursor: pointer; font-weight: bold; backdrop-filter: blur(4px);">💬 Чат</button>
+        <button onclick="switchTab('settings')" style="padding: 10px 20px; background-color: rgba(42, 42, 42, 0.85); border: 1px solid rgba(255,255,255,0.2); color: white; border-radius: 8px; cursor: pointer; font-weight: bold; backdrop-filter: blur(4px);">⚙️ Настройки</button>
+    </div>
+
+    <!-- ОСНОВНОЙ КОНТЕЙНЕР ПРОФИЛЯ -->
+    <div id="tab-profile" class="tab-content" style="display: block; width: 100%; max-width: 450px;">
+        <div class="glass-card" style="background-color: rgba(42, 42, 42, 0.75); border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 12px; padding: 25px; text-align: center; backdrop-filter: blur(4px); box-shadow: 0 8px 24px rgba(0,0,0,0.5);">
+            <!-- Аватарка кота -->
+            <div style="width: 130px; height: 130px; margin: 0 auto 15px auto; border-radius: 50%; overflow: hidden; border: 3px solid #4CAF50; background-color: #1a1a1a;">
+                <img id="displayAvatar" src="https://via.placeholder.com/130?text=Кот" alt="Фото кота" style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+            
+            <!-- Информация об игроке -->
+            <h2 id="displayName" style="margin: 5px 0 15px 0; color: #fff;">Имя кота</h2>
+            
+            <div style="text-align: left; background: rgba(0,0,0,0.3); padding: 15px; border-radius: 8px; font-size: 14px; line-height: 1.8;">
+                <div><b>Племя:</b> <span id="displayTribe">Одиночки</span></div>
+                <div><b>Возраст (Луны):</b> <span id="displayMoons">6 лун</span></div>
+                <div><b>Статус:</b> Оруженосец</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- РАЗДЕЛ: ИГРОВАЯ -->
+    <div id="tab-game" class="tab-content" style="display: none; width: 100%; max-width: 600px;">
+        <div class="glass-card" style="background-color: rgba(42, 42, 42, 0.75); border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 12px; padding: 25px; text-align: center; backdrop-filter: blur(4px);">
+            <h2>🌲 Игровая локация</h2>
+            <p style="color: #ccc;">Вы находитесь на опушке леса. Скоро здесь появится интерактивная карта для исследований!</p>
+        </div>
+    </div>
+
+    <!-- РАЗДЕЛ: РЕДАКТОР ОКРАСА -->
+    <div id="tab-colorEditor" class="tab-content" style="display: none; width: 100%; max-width: 600px;">
+        <div class="glass-card" style="background-color: rgba(42, 42, 42, 0.75); border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 12px; padding: 25px; text-align: center; backdrop-filter: blur(4px);">
+            <h2>🎨 Редактор окраса</h2>
+            <p style="color: #ccc;">Здесь вы сможете выбирать узоры, цвета шерсти и глаз вашего кота.</p>
+        </div>
+    </div>
+
+    <!-- РАЗДЕЛ: ЧАТ -->
+    <div id="tab-chat" class="tab-content" style="display: none; width: 100%; max-width: 600px;">
+        <div class="glass-card" style="background-color: rgba(42, 42, 42, 0.75); border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 12px; padding: 25px; backdrop-filter: blur(4px);">
+            <h2 style="text-align: center;">💬 Общий чат</h2>
+            <div style="height: 150px; background: rgba(0,0,0,0.4); border-radius: 6px; padding: 10px; margin-bottom: 10px; overflow-y: auto; font-size: 13px;">
+                <div><b style="color:#4CAF50;">Крутобок:</b> Всем привет в лесу!</div>
+            </div>
+            <input type="text" placeholder="Напишите сообщение..." style="width: 100%; padding: 10px; background: rgba(24,24,24,0.8); border: 1px solid rgba(255,255,255,0.2); color: white; border-radius: 6px; box-sizing: border-box;">
+        </div>
+    </div>
+
+    <!-- РАЗДЕЛ: НАСТРОЙКИ -->
+    <div id="tab-settings" class="tab-content" style="display: none; width: 100%; max-width: 500px;">
+        <div class="glass-card" style="background-color: rgba(42, 42, 42, 0.75); border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 12px; padding: 25px; backdrop-filter: blur(4px);">
+            <h2 style="text-align: center; margin-top: 0;">⚙️ Настройки персонажа и темы</h2>
+            
+            <!-- Изменение имени -->
+            <label style="display: block; margin-top: 15px; font-size: 14px;">Изменить имя кота:</label>
+            <input type="text" id="settingName" style="width: 100%; padding: 8px; margin-top: 5px; background: rgba(24,24,24,0.8); border: 1px solid rgba(255,255,255,0.2); color: white; border-radius: 6px; box-sizing: border-box;">
+
+            <!-- Ссылка на фото аватара -->
+            <label style="display: block; margin-top: 15px; font-size: 14px;">Ссылка на фото персонажа (URL):</label>
+            <input type="text" id="settingAvatar" placeholder="https://example.com/photo.jpg" style="width: 100%; padding: 8px; margin-top: 5px; background: rgba(24,24,24,0.8); border: 1px solid rgba(255,255,255,0.2); color: white; border-radius: 6px; box-sizing: border-box;">
+
+            <!-- Ссылка на фоновую картинку страницы -->
+            <label style="display: block; margin-top: 15px; font-size: 14px;">Ссылка на задний фон страницы (URL):</label>
+            <input type="text" id="settingBg" placeholder="https://example.com/bg.jpg" style="width: 100%; padding: 8px; margin-top: 5px; background: rgba(24,24,24,0.8); border: 1px solid rgba(255,255,255,0.2); color: white; border-radius: 6px; box-sizing: border-box;">
+
+            <!-- Прозрачность и цвет блоков -->
+            <label style="display: block; margin-top: 15px; font-size: 14px;">Прозрачность блоков (от 0.1 до 1.0):</label>
+            <input type="number" step="0.1" min="0.1" max="1" id="settingOpacity" value="0.75" style="width: 100%; padding: 8px; margin-top: 5px; background: rgba(24,24,24,0.8); border: 1px solid rgba(255,255,255,0.2); color: white; border-radius: 6px; box-sizing: border-box;">
+
+            <button onclick="saveSettings()" style="width: 100%; margin-top: 20px; padding: 12px; background-color: #4CAF50; color: white; border: none; border-radius: 6px; font-weight: bold; cursor: pointer;">Сохранить изменения</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
