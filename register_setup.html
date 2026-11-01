@@ -3,33 +3,96 @@
 <head>
     <meta charset="UTF-8">
     <title>Регистрация персонажа - Кот-Воитель</title>
-    <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body style="
+    background-image: url('https://images.unsplash.com/photo-1543510875-8b2e1c93c1ed?q=80&w=1170&auto=format&fit=crop');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: #f0f0f0; 
+    font-family: sans-serif; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    min-height: 100vh; 
+    margin: 0;
+">
 
-    <div class="register-container">
-        <h1>Рождение: Регистрация</h1>
+    <!-- Карточка регистрации -->
+    <div style="
+        background-color: rgba(42, 42, 42, 0.75); 
+        border: 1px solid rgba(255, 255, 255, 0.15); 
+        border-radius: 12px; 
+        padding: 30px; 
+        box-sizing: border-box; 
+        width: 340px; 
+        backdrop-filter: blur(4px);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+    ">
+        
+        <!-- Кнопка возврата наверх карточки -->
+        <a href="index.html" style="
+            color: #aaa; 
+            text-decoration: none; 
+            font-size: 13px; 
+            display: inline-block; 
+            margin-bottom: 15px;
+            transition: color 0.2s;
+        " onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#aaa'">← Обратно</a>
+
+        <h1 style="font-size: 20px; text-align: center; margin: 0 0 20px 0; color: #ffffff;">Рождение: Регистрация</h1>
         
         <form id="registerForm">
             <!-- Имя кота -->
-            <label for="catName">Имя кота:</label>
-            <input type="text" id="catName" placeholder="Например: Крутобок" required>
+            <label for="catName" style="display: block; margin-top: 10px; font-size: 14px; color: #ddd;">Имя кота:</label>
+            <input type="text" id="catName" placeholder="Например: Крутобок" required style="
+                width: 100%; 
+                padding: 10px; 
+                margin-top: 6px; 
+                background-color: rgba(24, 24, 24, 0.8); 
+                border: 1px solid rgba(255, 255, 255, 0.2); 
+                color: white; 
+                border-radius: 6px; 
+                box-sizing: border-box;
+                font-size: 14px;
+                outline: none;
+            ">
 
             <!-- Выбор племени -->
-            <label for="tribeSelect">Племя:</label>
-            <select id="tribeSelect">
+            <label for="tribeSelect" style="display: block; margin-top: 15px; font-size: 14px; color: #ddd;">Племя:</label>
+            <select id="tribeSelect" style="
+                width: 100%; 
+                padding: 10px; 
+                margin-top: 6px; 
+                background-color: rgba(24, 24, 24, 0.8); 
+                border: 1px solid rgba(255, 255, 255, 0.2); 
+                color: white; 
+                border-radius: 6px; 
+                box-sizing: border-box;
+                font-size: 14px;
+                outline: none;
+            ">
                 <option value="thunder">Одиночки</option>
             </select>
 
             <!-- Кнопка создания -->
-            <button type="submit" class="btn-create">Зарегестрировать</button>
+            <button type="submit" style="
+                width: 100%; 
+                margin-top: 25px; 
+                padding: 12px; 
+                background-color: #4CAF50; 
+                color: white; 
+                border: none; 
+                border-radius: 6px; 
+                font-size: 15px; 
+                font-weight: bold; 
+                cursor: pointer;
+                box-sizing: border-box;
+            ">Зарегистрировать</button>
         </form>
     </div>
 
-    <!-- Кнопка возврата в главное меню -->
-        <a href="index.html" class="btn-back">← Обратно</a>
-    </div>
-    
     <script src="script.js"></script>
 </body>
 </html>
